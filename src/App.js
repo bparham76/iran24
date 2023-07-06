@@ -1,7 +1,12 @@
-function App() {
+//TODO: routing base
+//TODO: Page Parts
+
+const App = () => {
   return (
-    <h1>hello</h1>
-  );
+    <>
+    <Header/>
+    </>
+  )
 }
 
-export default App;
+export default App
