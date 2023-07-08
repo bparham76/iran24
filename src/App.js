@@ -1,12 +1,10 @@
-//TODO: routing base
-//TODO: Page Parts
+import Dashboard from "./Pages/Dashboard";
+import AuthProvider from "./AuthProvider";
 
 const App = () => {
-  return (
-    <>
-    <Header/>
-    </>
-  )
+    return (<AuthProvider>
+      <Dashboard/>
+    </AuthProvider>);
 }
 
-export default App
+export default App;
