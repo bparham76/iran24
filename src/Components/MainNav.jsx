@@ -28,7 +28,7 @@ const MainNav = ({openMenu}) => {
                 </IconButton>
                 <Box sx={{flexGrow:1}}>
                     <Typography variant='h6' padding='0 20px 0 0'>
-                        Iran 24
+                        ایران 24
                     </Typography>
                 </Box>
                 <Box sx={{display:'flex'}}>

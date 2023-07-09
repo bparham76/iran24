@@ -1,9 +1,10 @@
-import { Typography, Box, Grid } from "@mui/material"
+import { Typography, Grid } from "@mui/material"
 import CardContainer from "../Components/CardContainer"
+import PageFader from "../Components/PageFader"
 
 const Home = () => {
   return (
-    <Box>
+    <PageFader>
         <Typography variant="h4" padding={2} margin={2}>
             صفحه اصلی
         </Typography>
@@ -69,7 +70,7 @@ const Home = () => {
                 </CardContainer>
             </Grid>
         </Grid>
-    </Box>
+    </PageFader>
   )
 }
 

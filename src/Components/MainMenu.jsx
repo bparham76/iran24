@@ -12,8 +12,8 @@ const MainMenu = ({open, setOpen}) => {
 
     const menuList = [
         {to:'/', title:'صفحه اصلی'},
-        {to:'/stats', title:'خلاصه آمار'},
-        {to:'/users', title:'کاربران'},
+        {to:'/hello', title:'خلاصه آمار'},
+        {to:'/test', title:'کاربران'},
         {to:'/profiles', title:'پروفایل'},
         {to:'/exit', title:'خروج'},
     ];
@@ -22,10 +22,13 @@ const MainMenu = ({open, setOpen}) => {
         <Drawer anchor={mobileScreen ? 'bottom' : 'right'} open={open} onClose={e=>setOpen(false)}>
             <Box sx={{
                 width: mobileScreen ? '100vw' : MenuSpan,
-                height: !mobileScreen ? '100vh' : MenuSpan,
-                padding: '10px'
+                height: !mobileScreen ? '100vh' : 'auto',
+                padding: '10px',
+                display:'flex',
+                justifyContent:'center',
+                alignItems:'center'
             }}>
-                <Stack>
+                <Stack sx={{width:'100%'}}>
                     {menuList.map(item=><MenuItem to={item.to} title={item.title}/>)}
                 </Stack>
             </Box>
