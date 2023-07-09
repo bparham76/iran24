@@ -1,9 +1,28 @@
-import { Box } from "@mui/material"
+import { createBrowserRouter } from "react-router-dom"
 
-const DashboardRouter = () => {
-  return (
-    <Box sx={{height:'1000px'}}>salam</Box>
-  )
-}
+import Dashboard from "./Dashboard"
 
-export default DashboardRouter
+import Home from "./Home"
+
+const Routes = createBrowserRouter([
+    {
+        path: '/',
+        element: <Dashboard />,
+        children:[
+            {
+                path: '/',
+                element: <Home />
+            },
+            {
+                path: 'hello',
+                element: <h1>Hello</h1>
+            },
+            {
+                path: 'test',
+                element: <h1>this is a test page</h1>
+            }
+        ]
+    },
+])
+
+export default Routes

@@ -1,10 +1,14 @@
 import { Typography, Box, IconButton, AppBar, Toolbar, useScrollTrigger, useMediaQuery } from "@mui/material"
 import { Menu, AccountCircle } from "@mui/icons-material";
 
+import { useUserInfo } from "../AuthProvider";
+
 const MainNav = ({openMenu}) => {
     const scroll = useScrollTrigger();
     const mobileScreen = useMediaQuery('(max-width: 470px)');
     const TXT_COLOR = 'blue';
+
+    const userInfo = useUserInfo();
 
     return (
         <AppBar sx={{
@@ -22,21 +26,18 @@ const MainNav = ({openMenu}) => {
                 }}>
                     <Menu />
                 </IconButton>
-                <Box sx={{flexGrow:1}}></Box>
+                <Box sx={{flexGrow:1}}>
+                    <Typography variant='h6' padding='0 20px 0 0'>
+                        Iran 24
+                    </Typography>
+                </Box>
                 <Box sx={{display:'flex'}}>
                     <IconButton sx={{borderRadius: 1, color: mobileScreen ? 'white' : scroll ? 'white' : TXT_COLOR}}>
-                        <Typography ml={1}>خوش آمدی چیز جان</Typography>
+                        <Typography ml={1}>خوش آمدی {userInfo.name} جان</Typography>
                         <AccountCircle/>
                     </IconButton>
                 </Box>
             </Toolbar>
-            {/* <Box display='flex' p={1}>
-                <IconButton onClick={openMenu} sx={{
-                    color: mobileScreen ? 'white' : scroll ? 'white' : TXT_COLOR
-                }}>
-                    <Menu />
-                </IconButton>
-            </Box> */}
         </AppBar>
     )
 }
