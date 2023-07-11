@@ -1,4 +1,4 @@
-import { Container, useMediaQuery } from "@mui/material";
+import { Container, Box } from "@mui/material";
 import { useState } from "react";
 
 import MainNav from "../Components/MainNav";
@@ -8,13 +8,14 @@ import { Outlet } from "react-router-dom";
 
 const Dashboard = () => {
     const [sideMenuOpen, setSideMenuOpen] = useState(false);
-    const mobileScreen = useMediaQuery('(max-width: 470px)');
 	
     return (
 		<>
 			<MainNav openMenu={e=>setSideMenuOpen(true)}/>
-			<MainMenu open={sideMenuOpen} setOpen={setSideMenuOpen} />
-			<Container sx={{pt:mobileScreen ? 2 : 10}}>
+			<Container sx={{pt: 10, pb: 10, display:'flex', gap:2}}>
+				<Box>
+					<MainMenu open={sideMenuOpen} setOpen={setSideMenuOpen} />
+				</Box>
 				<Outlet />
 			</Container>
 		</>

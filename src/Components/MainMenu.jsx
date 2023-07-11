@@ -1,10 +1,9 @@
-import { Box, Drawer, Button, Stack, useMediaQuery } from "@mui/material";
+import { Box, Paper, Drawer, Button, Stack, useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const MainMenu = ({open, setOpen}) => {
 
     const mobileScreen = useMediaQuery('(max-width: 470px)'); 
-    const MenuSpan = mobileScreen ? '80vh' : '300px';
 
     const navigate = useNavigate();
 
@@ -18,11 +17,11 @@ const MainMenu = ({open, setOpen}) => {
         {to:'/exit', title:'خروج'},
     ];
 
-    return (
-        <Drawer anchor={mobileScreen ? 'bottom' : 'right'} open={open} onClose={e=>setOpen(false)}>
+    return mobileScreen ?
+        <Drawer anchor="right" open={open} onClose={e=>setOpen(false)}>
             <Box sx={{
-                width: mobileScreen ? '100vw' : MenuSpan,
-                height: !mobileScreen ? '100vh' : 'auto',
+                width: '60vw',
+                height: '100vh',
                 padding: '10px',
                 display:'flex',
                 justifyContent:'center',
@@ -33,7 +32,16 @@ const MainMenu = ({open, setOpen}) => {
                 </Stack>
             </Box>
         </Drawer>
-    )
+        :
+        <Paper sx={{
+            height: 'auto',
+            position:'sticky',
+            top: '15%'
+        }}>
+            <Stack sx={{width:'200px'}}>
+                    {menuList.map(item=><MenuItem to={item.to} title={item.title}/>)}
+            </Stack>
+        </Paper>
 }
 
 export default MainMenu
