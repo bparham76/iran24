@@ -6,3 +6,14 @@
         url('./Resources/Fonts/Vazir-FD.woff2') format('woff2'),
         url('./Resources/Fonts/Vazir-FD.eot') format('eot');
 }
+
+
+html::-webkit-scrollbar
+, body::-webkit-scrollbar {
+    display: none;
+}
+  
+html, body {
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}

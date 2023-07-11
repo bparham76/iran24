@@ -28,7 +28,7 @@ const MainMenu = ({open, setOpen}) => {
                 alignItems:'center'
             }}>
                 <Stack sx={{width:'100%'}}>
-                    {menuList.map(item=><MenuItem to={item.to} title={item.title}/>)}
+                    {menuList.map((item, index)=><MenuItem key={index} to={item.to} title={item.title}/>)}
                 </Stack>
             </Box>
         </Drawer>
@@ -39,7 +39,7 @@ const MainMenu = ({open, setOpen}) => {
             top: '15%'
         }}>
             <Stack sx={{width:'200px'}}>
-                    {menuList.map(item=><MenuItem to={item.to} title={item.title}/>)}
+                {menuList.map((item, index)=><MenuItem key={index} to={item.to} title={item.title}/>)}
             </Stack>
         </Paper>
 }

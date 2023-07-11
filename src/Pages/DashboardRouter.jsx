@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom"
 import Dashboard from "./Dashboard"
 
 import Home from "./Home"
+import Login from "./Login"
 
 const Routes = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const Routes = createBrowserRouter([
             }
         ]
     },
+    {
+        path:'login',
+        element: <Login />
+    }
 ])
 
 export default Routes
