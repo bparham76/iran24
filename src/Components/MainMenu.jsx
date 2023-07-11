@@ -18,7 +18,7 @@ const MainMenu = ({open, setOpen}) => {
     ];
 
     return mobileScreen ?
-        <Drawer anchor="right" open={open} onClose={e=>setOpen(false)}>
+        <Drawer anchor="left" SlideProps={{direction:"left"}} open={open} onClose={e=>setOpen(false)} sx={{right:0}}>
             <Box sx={{
                 width: '60vw',
                 height: '100vh',
