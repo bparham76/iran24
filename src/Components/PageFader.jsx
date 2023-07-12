@@ -1,13 +1,13 @@
-import { Fade, Box } from "@mui/material"
+import { Fade, Box } from '@mui/material';
 
-const PageFader = ({children}) => {
-  return (
-    <Fade in={true} timeout={300}>
-        <Box>
-            {children}
-        </Box>
-    </Fade>
-  )
-}
+const PageFader = ({ children }) => {
+	return (
+		<Fade
+			in={true}
+			timeout={300}>
+			<Box>{children}</Box>
+		</Fade>
+	);
+};
 
-export default PageFader
+export default PageFader;
