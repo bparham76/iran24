@@ -8,9 +8,6 @@ import { useAdminRoutes, useColleagueRoutes } from './AppRoutes';
 const AppRouter = () => {
 	const userInfo = useUserInfo();
 
-	// const { AdminRoutes } = useAdminRoutes();
-	// const { ColleagueRoutes } = useColleagueRoutes();
-
 	const AdminRoutes = useAdminRoutes();
 	const ColleagueRoutes = useColleagueRoutes();
 

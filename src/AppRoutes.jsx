@@ -1,32 +1,5 @@
 import { Home as AdminHome } from './Pages/Admin/Home';
-
-// export const useAdminRoutes = () => {
-// 	return {
-// 		AdminMenu: [
-// 			{
-// 				path: '',
-// 				title: '',
-// 			},
-// 		],
-// 		AdminRoutes: [
-// 			{
-// 				path: '/',
-// 				element: <AdminHome />,
-// 			},
-// 			{
-// 				path: 'hello',
-// 				element: <h1>Hello</h1>,
-// 			},
-// 		],
-// 	};
-// };
-
-// export const useColleagueRoutes = () => {
-// 	return {
-// 		ColleagueMenu: [],
-// 		ColleagueRoutes: [],
-// 	};
-// };
+import { Statistics as AdminStats } from './Pages/Admin/Statistics';
 
 export const useAdminRoutes = () => [
 	{
@@ -35,9 +8,9 @@ export const useAdminRoutes = () => [
 		element: <AdminHome />,
 	},
 	{
-		path: 'hello',
-		title: 'سلام',
-		element: <h1>Hello</h1>,
+		path: 'stats',
+		title: 'آمار',
+		element: <AdminStats />,
 	},
 ];
 
