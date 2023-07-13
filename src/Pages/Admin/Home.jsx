@@ -11,7 +11,10 @@ export const Home = () => {
 	const [isColleague, setIsColleague] = useState(false);
 
 	useEffect(() => {
-		if (!showUserDialog) setIsColleague(false);
+		if (!showUserDialog)
+			setTimeout(() => {
+				setIsColleague(false);
+			}, 500);
 	}, [showUserDialog]);
 
 	const QAButton = ({ children, ...others }) => (
