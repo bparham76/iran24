@@ -15,14 +15,13 @@ const AppRouter = () => {
 		{
 			path: '/',
 			element: <Dashboard />,
-			children: AdminRoutes,
+			children: userInfo.type == 'admin' ? AdminRoutes : ColleagueRoutes,
 		},
 		{
 			path: 'login',
 			element: <Login />,
 		},
 	]);
-	// const Routes = createBrowserRouter(adminRoutes);
 
 	return <RouterProvider router={Routes} />;
 };

@@ -11,4 +11,9 @@ export const useAdminRoutes = () => [
 	},
 ];
 
-export const useColleagueRoutes = () => [];
+export const useColleagueRoutes = () => [
+	{
+		path: '/',
+		element: <h1>Colleague Home</h1>,
+	},
+];

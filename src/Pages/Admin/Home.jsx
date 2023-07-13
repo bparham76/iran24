@@ -3,7 +3,7 @@ import { Typography, Grid, Button, useMediaQuery } from '@mui/material';
 import CardContainer from '../../Components/CardContainer';
 import PageFader from '../../Components/PageFader';
 
-import CreateUser from '../../Components/Admin/CreateUser';
+import CreateUser from '../../Components/CreateUser';
 
 export const Home = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
