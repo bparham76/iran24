@@ -8,14 +8,29 @@ import { useAdminRoutes, useColleagueRoutes } from './AppRoutes';
 const AppRouter = () => {
 	const userInfo = useUserInfo();
 
+	// const { AdminRoutes } = useAdminRoutes();
+	// const { ColleagueRoutes } = useColleagueRoutes();
+
 	const AdminRoutes = useAdminRoutes();
 	const ColleagueRoutes = useColleagueRoutes();
+
+	let routeList = [];
+
+	if (userInfo.type == 'admin') {
+		routeList = AdminRoutes.map((route) => {
+			return { path: route.path, element: route.element };
+		});
+	} else {
+		routeList = ColleagueRoutes.map((route) => {
+			return { path: route.path, element: route.element };
+		});
+	}
 
 	const Routes = createBrowserRouter([
 		{
 			path: '/',
 			element: <Dashboard />,
-			children: userInfo.type == 'admin' ? AdminRoutes : ColleagueRoutes,
+			children: routeList,
 		},
 		{
 			path: 'login',

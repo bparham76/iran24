@@ -30,8 +30,16 @@ const FormDialogue = ({ title, open, onClose, handleSubmit, children }) => {
 				</Box>
 			</DialogContent>
 			<DialogActions>
-				<Button onClick={onClose}>انصراف</Button>
-				<Button onClick={handleSubmit}>تایید</Button>
+				<Button
+					sx={{ px: 2 }}
+					onClick={onClose}>
+					انصراف
+				</Button>
+				<Button
+					sx={{ px: 2 }}
+					onClick={handleSubmit}>
+					تایید
+				</Button>
 			</DialogActions>
 		</Dialog>
 	);
