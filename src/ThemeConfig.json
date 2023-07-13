@@ -2,5 +2,6 @@
     "typography": {
         "fontFamily": "vazir"
     },
-    "components":{}
+    "components":{
+    }
 }

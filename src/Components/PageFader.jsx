@@ -5,7 +5,7 @@ const PageFader = ({ children }) => {
 		<Fade
 			in={true}
 			timeout={300}>
-			<Box>{children}</Box>
+			<Box sx={{ width: '100%' }}>{children}</Box>
 		</Fade>
 	);
 };

@@ -1,10 +1,6 @@
 import AuthProvider from "./AuthProvider";
 
-import axios from "axios";
-
-import Routes from "./Pages/DashboardRouter";
-import { RouterProvider } from "react-router-dom";
-
+import AppRouter from "./AppRouter";
 import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 
 import themeConfig from './ThemeConfig.json';
@@ -26,15 +22,13 @@ function RTL(props) {
 
 const App = () => {
 
-	axios.defaults.withCredentials = true;
-
     const theme = createTheme(themeConfig);
 
     return <ThemeProvider theme={theme}>
         <CssBaseline />
         <RTL>
             <AuthProvider>
-                <RouterProvider router={Routes} />
+                <AppRouter />
             </AuthProvider>
         </RTL>
     </ThemeProvider>;
