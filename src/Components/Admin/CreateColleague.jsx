@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { TextField, Button, useMediaQuery } from '@mui/material';
-import FormDialogue from './UI/FormDialogue';
+import FormDialogue from '../UI/FormDialogue';
 
-const CreateUser = () => {
+const CreateColleague = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
 	const [show, setShow] = useState(false);
 	const handleSubmit = () => {};
@@ -14,11 +14,11 @@ const CreateUser = () => {
 				fullWidth={mobileScreen}
 				variant='contained'
 				sx={{ mb: 1, mr: 1 }}>
-				افزودن کاربر جدید
+				افزودن همکار جدید
 			</Button>
 			<FormDialogue
 				open={show}
-				title='افزودن کاربر جدید'
+				title='افزودن همکار جدید'
 				onClose={(e) => setShow(false)}
 				handleSubmit={handleSubmit}>
 				<TextField
@@ -42,4 +42,4 @@ const CreateUser = () => {
 	);
 };
 
-export default CreateUser;
+export default CreateColleague;
