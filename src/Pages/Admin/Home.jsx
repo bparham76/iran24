@@ -4,6 +4,8 @@ import CardContainer from '../../Components/UI/CardContainer';
 import PageFader from '../../Components/UI/PageFader';
 
 import CreateUser from '../../Components/CreateUser';
+import UserStatsSummary from '../../Components/Admin/UserStatsSummary';
+import FinancialStatsSummary from '../../Components/Admin/FinancialStatsSummary';
 
 export const Home = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
@@ -70,13 +72,17 @@ export const Home = () => {
 					item
 					xs={12}
 					md={6}>
-					<CardContainer>کاربران</CardContainer>
+					<CardContainer>
+						<UserStatsSummary />
+					</CardContainer>
 				</Grid>
 				<Grid
 					item
 					xs={12}
 					md={6}>
-					<CardContainer>مالی</CardContainer>
+					<CardContainer>
+						<FinancialStatsSummary />
+					</CardContainer>
 				</Grid>
 			</Grid>
 		</PageFader>
