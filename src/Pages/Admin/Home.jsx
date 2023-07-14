@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Typography, Grid, Button, useMediaQuery } from '@mui/material';
-import CardContainer from '../../Components/CardContainer';
-import PageFader from '../../Components/PageFader';
+import CardContainer from '../../Components/UI/CardContainer';
+import PageFader from '../../Components/UI/PageFader';
 
 import CreateUser from '../../Components/CreateUser';
 
@@ -70,13 +70,13 @@ export const Home = () => {
 					item
 					xs={12}
 					md={6}>
-					<CardContainer>salam</CardContainer>
+					<CardContainer>کاربران</CardContainer>
 				</Grid>
 				<Grid
 					item
 					xs={12}
 					md={6}>
-					<CardContainer>salam</CardContainer>
+					<CardContainer>مالی</CardContainer>
 				</Grid>
 			</Grid>
 		</PageFader>

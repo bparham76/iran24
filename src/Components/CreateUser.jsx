@@ -1,5 +1,5 @@
 import { TextField } from '@mui/material';
-import FormDialogue from './FormDialogue';
+import FormDialogue from './UI/FormDialogue';
 
 const CreateUser = ({ open, onClose, isColleague }) => {
 	const handleSubmit = () => {};
