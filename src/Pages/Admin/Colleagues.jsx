@@ -6,13 +6,14 @@ import CardContainer from '../../Components/UI/CardContainer';
 export const Colleagues = () => {
 	return (
 		<PageFader>
-			<Typography
-				padding={2}
-				margin={2}
-				variant='h4'>
-				همکاران
-			</Typography>
-			<CardContainer>salam</CardContainer>
+			<CardContainer>
+				<Typography
+					padding={2}
+					margin={2}
+					variant='h4'>
+					همکاران
+				</Typography>
+			</CardContainer>
 		</PageFader>
 	);
 };

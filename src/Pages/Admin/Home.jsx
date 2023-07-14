@@ -10,12 +10,6 @@ import FinancialStatsSummary from '../../Components/Admin/FinancialStatsSummary'
 export const Home = () => {
 	return (
 		<PageFader>
-			<Typography
-				variant='h4'
-				padding={2}
-				margin={2}>
-				صفحه اصلی
-			</Typography>
 			<Grid
 				container
 				spacing={1}>
@@ -24,12 +18,13 @@ export const Home = () => {
 					xs={12}>
 					<CardContainer>
 						<Typography
-							variant='h6'
-							pb={2}>
-							دسترسی سریع
+							variant='h4'
+							padding={2}
+							margin={2}>
+							صفحه اصلی
 						</Typography>
-						<CreateUser />
 						<CreateColleague />
+						<CreateUser />
 					</CardContainer>
 				</Grid>
 				<Grid
@@ -47,6 +42,11 @@ export const Home = () => {
 					<CardContainer>
 						<FinancialStatsSummary />
 					</CardContainer>
+				</Grid>
+				<Grid
+					item
+					xs={12}>
+					<CardContainer>مصرف هفته گذشته</CardContainer>
 				</Grid>
 			</Grid>
 		</PageFader>

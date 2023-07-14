@@ -75,7 +75,7 @@ const MainMenu = ({ open, setOpen }) => {
 			sx={{
 				height: 'auto',
 				position: 'sticky',
-				top: '15%',
+				top: '80px',
 			}}>
 			<Stack sx={{ width: '200px' }}>
 				{menuList.map((item, index) => (
