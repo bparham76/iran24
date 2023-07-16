@@ -32,6 +32,8 @@ const MainMenu = ({ open, setOpen }) => {
 		});
 	}
 
+	menuList = menuList.filter((item) => item.title != '');
+
 	const MenuItem = ({ to, title }) => (
 		<Button
 			sx={{ p: 2 }}

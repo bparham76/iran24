@@ -12,30 +12,31 @@ import {
 } from '@mui/material';
 import { Search } from '@mui/icons-material';
 
+//faker data
+import colleagues from '../../data/colleagues.json';
+
 const ColleaguesList = () => {
 	const [loading, isLoading] = useState(false);
 	const [commitSearch, setCommitSearch] = useState(false);
-	const [colleagueList, setColleagueList] = useState([]);
 
 	const navigate = useNavigate();
 
-	const CustomTableRow = () => (
+	const CustomTableRow = ({ data }) => (
 		<TableRow
-			onClick={(e) => navigate('/colleagues/detail/' + 1)}
+			onClick={(e) => navigate('/colleagues/detail/' + data.id)}
 			sx={{
 				':hover': {
 					cursor: 'pointer',
 					backgroundColor: 'lightcyan',
 				},
 			}}>
-			<TableCell>salam</TableCell>
-			<TableCell>salam</TableCell>
-			<TableCell>salam</TableCell>
+			<TableCell>{data.firstName}</TableCell>
+			<TableCell>{data.lastName}</TableCell>
+			<TableCell>{data.phone}</TableCell>
 		</TableRow>
 	);
 
 	const tableHeads = ['نام', 'نام خانوادگی', 'تلفن'];
-	const data = [1, 2, 3, 45, 2, 2, 52, 2, 52, 6, 6, , 6];
 
 	return (
 		<Box p={2}>
@@ -63,8 +64,11 @@ const ColleaguesList = () => {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{data.map((item, index) => (
-						<CustomTableRow key={index} />
+					{colleagues.data.map((item, index) => (
+						<CustomTableRow
+							key={index}
+							data={item}
+						/>
 					))}
 				</TableBody>
 			</Table>

@@ -29,7 +29,7 @@ export const useAdminRoutes = () => [
 	},
 	{
 		path: 'colleagues/detail/:id',
-		title: 'همکاران',
+		title: '',
 		element: <ColleagueDetails />,
 	},
 	{
