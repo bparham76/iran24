@@ -4,7 +4,7 @@ import PageFader from '../../Components/UI/PageFader';
 import CardContainer from '../../Components/UI/CardContainer';
 import CreateUser from '../../Components/CreateUser';
 import CreateTestConnection from '../../Components/CreateTestConnection';
-import UsersList from '../../Components/UsersList';
+import EndUsersList from '../../Components/EndUsersList';
 
 export const EndUsers = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
@@ -26,7 +26,7 @@ export const EndUsers = () => {
 					<CreateUser />
 					<CreateTestConnection />
 				</Box>
-				<UsersList />
+				<EndUsersList />
 			</CardContainer>
 		</PageFader>
 	);

@@ -16,7 +16,7 @@ import { Search } from '@mui/icons-material';
 //faker data
 import users from '../data/users.json';
 
-const UsersList = () => {
+const EndUsersList = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
 	const [loading, isLoading] = useState(false);
 	const [commitSearch, setCommitSearch] = useState(false);
@@ -85,4 +85,4 @@ const UsersList = () => {
 	);
 };
 
-export default UsersList;
+export default EndUsersList;
