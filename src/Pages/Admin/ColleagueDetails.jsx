@@ -5,6 +5,7 @@ import { Box, Typography, IconButton } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useParams, useNavigate } from 'react-router-dom';
 
+import FullscreenLoader from '../../Components/UI/FullscreenLoader';
 import colleagues from '../../data/colleagues.json';
 
 const ColleagueDetails = () => {
@@ -18,7 +19,7 @@ const ColleagueDetails = () => {
 		});
 	}, []);
 
-	if (!data) return 'loading';
+	if (!data) return <FullscreenLoader />;
 	return (
 		<PageFader>
 			<CardContainer>

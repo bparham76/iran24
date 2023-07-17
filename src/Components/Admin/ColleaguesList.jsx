@@ -9,6 +9,7 @@ import {
 	TableRow,
 	TableBody,
 	TableCell,
+	useMediaQuery,
 } from '@mui/material';
 import { Search } from '@mui/icons-material';
 
@@ -16,6 +17,7 @@ import { Search } from '@mui/icons-material';
 import colleagues from '../../data/colleagues.json';
 
 const ColleaguesList = () => {
+	const mobileScreen = useMediaQuery('(max-width: 470px)');
 	const [loading, isLoading] = useState(false);
 	const [commitSearch, setCommitSearch] = useState(false);
 
@@ -51,27 +53,33 @@ const ColleaguesList = () => {
 					),
 				}}
 			/>
-			<Table>
-				<TableHead>
-					<TableRow>
-						{tableHeads.map((item, index) => (
-							<TableCell
-								sx={{ fontWeight: 'bold' }}
-								key={index}>
-								{item}
-							</TableCell>
+			<Box
+				sx={{
+					width: '100%',
+					overflowX: mobileScreen ? 'scroll' : 'hidden',
+				}}>
+				<Table>
+					<TableHead>
+						<TableRow>
+							{tableHeads.map((item, index) => (
+								<TableCell
+									sx={{ fontWeight: 'bold' }}
+									key={index}>
+									{item}
+								</TableCell>
+							))}
+						</TableRow>
+					</TableHead>
+					<TableBody>
+						{colleagues.data.map((item, index) => (
+							<CustomTableRow
+								key={index}
+								data={item}
+							/>
 						))}
-					</TableRow>
-				</TableHead>
-				<TableBody>
-					{colleagues.data.map((item, index) => (
-						<CustomTableRow
-							key={index}
-							data={item}
-						/>
-					))}
-				</TableBody>
-			</Table>
+					</TableBody>
+				</Table>
+			</Box>
 		</Box>
 	);
 };

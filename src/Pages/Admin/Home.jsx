@@ -1,4 +1,4 @@
-import { Typography, Grid, Box } from '@mui/material';
+import { Typography, Grid, Box, useMediaQuery } from '@mui/material';
 import CardContainer from '../../Components/UI/CardContainer';
 import PageFader from '../../Components/UI/PageFader';
 
@@ -9,6 +9,8 @@ import UserStatsSummary from '../../Components/Admin/UserStatsSummary';
 import FinancialStatsSummary from '../../Components/Admin/FinancialStatsSummary';
 
 export const Home = () => {
+	const mobileScreen = useMediaQuery('(max-width: 470px)');
+
 	return (
 		<PageFader>
 			<Grid
@@ -27,7 +29,9 @@ export const Home = () => {
 						<Box
 							sx={{
 								display: 'flex',
-								flexDirection: 'row-reverse',
+								flexDirection: mobileScreen
+									? 'column'
+									: 'row-reverse',
 							}}>
 							<CreateColleague />
 							<CreateUser />

@@ -9,6 +9,7 @@ import {
 	TableRow,
 	TableBody,
 	TableCell,
+	useMediaQuery,
 } from '@mui/material';
 import { Search } from '@mui/icons-material';
 
@@ -16,6 +17,7 @@ import { Search } from '@mui/icons-material';
 import users from '../data/users.json';
 
 const UsersList = () => {
+	const mobileScreen = useMediaQuery('(max-width: 470px)');
 	const [loading, isLoading] = useState(false);
 	const [commitSearch, setCommitSearch] = useState(false);
 
@@ -52,27 +54,33 @@ const UsersList = () => {
 					),
 				}}
 			/>
-			<Table>
-				<TableHead>
-					<TableRow>
-						{tableHeads.map((item, index) => (
-							<TableCell
-								sx={{ fontWeight: 'bold' }}
-								key={index}>
-								{item}
-							</TableCell>
+			<Box
+				sx={{
+					overflowX: mobileScreen ? 'scroll' : 'hidden',
+					width: '100%',
+				}}>
+				<Table>
+					<TableHead>
+						<TableRow>
+							{tableHeads.map((item, index) => (
+								<TableCell
+									sx={{ fontWeight: 'bold' }}
+									key={index}>
+									{item}
+								</TableCell>
+							))}
+						</TableRow>
+					</TableHead>
+					<TableBody>
+						{users.data.map((item, index) => (
+							<CustomTableRow
+								key={index}
+								data={item}
+							/>
 						))}
-					</TableRow>
-				</TableHead>
-				<TableBody>
-					{users.data.map((item, index) => (
-						<CustomTableRow
-							key={index}
-							data={item}
-						/>
-					))}
-				</TableBody>
-			</Table>
+					</TableBody>
+				</Table>
+			</Box>
 		</Box>
 	);
 };

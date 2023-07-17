@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery } from '@mui/material';
 
 import PageFader from '../../Components/UI/PageFader';
 import CardContainer from '../../Components/UI/CardContainer';
@@ -7,6 +7,8 @@ import CreateTestConnection from '../../Components/CreateTestConnection';
 import UsersList from '../../Components/UsersList';
 
 export const EndUsers = () => {
+	const mobileScreen = useMediaQuery('(max-width: 470px)');
+
 	return (
 		<PageFader>
 			<CardContainer>
@@ -19,7 +21,7 @@ export const EndUsers = () => {
 				<Box
 					sx={{
 						display: 'flex',
-						flexDirection: 'row-reverse',
+						flexDirection: mobileScreen ? 'column' : 'row-reverse',
 					}}>
 					<CreateUser />
 					<CreateTestConnection />
