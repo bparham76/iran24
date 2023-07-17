@@ -1,9 +1,9 @@
 import { Typography, Grid, Box, useMediaQuery } from '@mui/material';
-import CardContainer from '../Components/UI/CardContainer';
-import PageFader from '../Components/UI/PageFader';
+import CardContainer from '../../Components/UI/CardContainer';
+import PageFader from '../../Components/UI/PageFader';
 
-import CreateUser from '../Components/CreateUser';
-import CreateTestConnection from '../Components/CreateTestConnection';
+import CreateUser from '../../Components/CreateUser';
+import CreateTestConnection from '../../Components/CreateTestConnection';
 
 export const Home = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
@@ -35,18 +35,18 @@ export const Home = () => {
 						</Box>
 					</CardContainer>
 				</Grid>
-				<Grid
-					item
-					xs={12}
-					md={6}>
-					<CardContainer></CardContainer>
-				</Grid>
-				<Grid
-					item
-					xs={12}
-					md={6}>
-					<CardContainer></CardContainer>
-				</Grid>
+				{/*<Grid
+				// 	item
+				// 	xs={12}
+				// 	md={6}>
+				// 	<CardContainer></CardContainer>
+				// </Grid>
+				// <Grid
+				// 	item
+				// 	xs={12}
+				// 	md={6}>
+				// 	<CardContainer></CardContainer>
+						</Grid>*/}
 			</Grid>
 		</PageFader>
 	);

@@ -10,12 +10,11 @@ import ColleagueFinancialReport from './Pages/Admin/Colleagues/ColleagueFinancia
 import ColleagueUsersReport from './Pages/Admin/Colleagues/ColleagueUsersReport';
 import UserFinancialReport from './Pages/Admin/Users/UserFinancialReport';
 import UserConsumeReport from './Pages/Admin/Users/UserConsumeReport';
-// import { Statistics as AdminStats } from './Pages/Admin/Statistics';
-// import { Messages } from './Pages/Admin/Messages';
-// import { TlgBot } from './Pages/Admin/TlgBot';
 
 //Colleague pages
-import { Home as ColleagueHome } from './Pages/Home';
+import { Home as ColleagueHome } from './Pages/Colleague/Home';
+import Financials from './Pages/Colleague/Financials';
+import Users from './Pages/Colleague/Users';
 
 export const useAdminRoutes = () => [
 	{
@@ -23,11 +22,6 @@ export const useAdminRoutes = () => [
 		title: 'صفحه اصلی',
 		element: <AdminHome />,
 	},
-	// {
-	// 	path: 'stats',
-	// 	title: 'آمار',
-	// 	element: <AdminStats />,
-	// },
 	{
 		path: 'colleagues',
 		title: 'همکاران',
@@ -68,16 +62,6 @@ export const useAdminRoutes = () => [
 		title: '',
 		element: <UserConsumeReport />,
 	},
-	// {
-	// 	path: 'messages',
-	// 	title: 'پیام ها',
-	// 	element: <Messages />,
-	// },
-	// {
-	// 	path: 'bot',
-	// 	title: 'ربات تلگرام',
-	// 	element: <TlgBot />,
-	// },
 	{
 		path: 'settings',
 		title: 'تنظیمات',
@@ -88,16 +72,21 @@ export const useAdminRoutes = () => [
 export const useColleagueRoutes = () => [
 	{
 		path: '/',
-		title: '',
-		element: <h1>Colleague Home</h1>,
-	},
-	{
-		path: '/',
 		title: 'صفحه اصلی',
 		element: <ColleagueHome />,
 	},
 	{
-		path: '/',
+		path: '/financials',
+		title: 'امور مالی',
+		element: <Financials />,
+	},
+	{
+		path: '/users',
+		title: 'کاربران',
+		element: <Users />,
+	},
+	{
+		path: '/fff',
 		title: '',
 		element: <h1>Colleague Home</h1>,
 	},

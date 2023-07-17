@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { useUserInfo } from './AuthProvider';
 import Dashboard from './Pages/Dashboard';
 import Login from './Pages/Login';
+import NotFound from './Pages/NotFound';
 
 import { useAdminRoutes, useColleagueRoutes } from './AppRoutes';
 
@@ -28,6 +29,7 @@ const AppRouter = () => {
 			path: '/',
 			element: <Dashboard />,
 			children: routeList,
+			errorElement: <NotFound />,
 		},
 		{
 			path: 'login',

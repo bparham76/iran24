@@ -23,7 +23,8 @@ const AuthProvider = ({ children }) => {
 	const [userInfo, setUserInfo] = useState({
 		name: 'پرهام',
 		username: 'bparham76',
-		type: 'admin',
+		// type: 'admin',
+		type: 'colleague',
 	});
 
 	return (
