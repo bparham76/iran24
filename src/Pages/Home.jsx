@@ -1,12 +1,9 @@
 import { Typography, Grid, Box, useMediaQuery } from '@mui/material';
-import CardContainer from '../../Components/UI/CardContainer';
-import PageFader from '../../Components/UI/PageFader';
+import CardContainer from '../Components/UI/CardContainer';
+import PageFader from '../Components/UI/PageFader';
 
-import CreateUser from '../../Components/CreateUser';
-import CreateColleague from '../../Components/Admin/CreateColleague';
-import CreateTestConnection from '../../Components/CreateTestConnection';
-import UserStatsSummary from '../../Components/Admin/UserStatsSummary';
-import FinancialStatsSummary from '../../Components/Admin/FinancialStatsSummary';
+import CreateUser from '../Components/CreateUser';
+import CreateTestConnection from '../Components/CreateTestConnection';
 
 export const Home = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
@@ -33,7 +30,6 @@ export const Home = () => {
 									? 'column'
 									: 'row-reverse',
 							}}>
-							<CreateColleague />
 							<CreateUser />
 							<CreateTestConnection />
 						</Box>
@@ -43,17 +39,13 @@ export const Home = () => {
 					item
 					xs={12}
 					md={6}>
-					<CardContainer>
-						<UserStatsSummary />
-					</CardContainer>
+					<CardContainer></CardContainer>
 				</Grid>
 				<Grid
 					item
 					xs={12}
 					md={6}>
-					<CardContainer>
-						<FinancialStatsSummary />
-					</CardContainer>
+					<CardContainer></CardContainer>
 				</Grid>
 			</Grid>
 		</PageFader>

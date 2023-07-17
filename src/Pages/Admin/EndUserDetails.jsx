@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import PageFader from '../../Components/UI/PageFader';
-import PersonalInfo from '../../Components/Admin/PersonalInfo';
 import CardContainer from '../../Components/UI/CardContainer';
 import {
-	Button,
-	Box,
 	Stack,
+	Box,
+	Button,
 	Typography,
 	IconButton,
 	useMediaQuery,
@@ -15,11 +14,11 @@ import EditIcon from '@mui/icons-material/Edit';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import StopCircleIcon from '@mui/icons-material/StopCircle';
 import { useParams, useNavigate } from 'react-router-dom';
-
+import PersonalInfo from '../../Components/Admin/PersonalInfo';
 import FullscreenLoader from '../../Components/UI/FullscreenLoader';
-import colleagues from '../../data/colleagues.json';
+import users from '../../data/users.json';
 
-const ColleagueDetails = () => {
+const EndUserDetails = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
 	const { id } = useParams();
 	const navigate = useNavigate();
@@ -34,7 +33,7 @@ const ColleagueDetails = () => {
 	};
 
 	useEffect(() => {
-		colleagues.data.forEach((item) => {
+		users.data.forEach((item) => {
 			if (item.id == id) setData(item);
 		});
 	}, []);
@@ -46,13 +45,12 @@ const ColleagueDetails = () => {
 				<CardContainer>
 					<Box
 						display='flex'
+						alignItems='center'
 						gap={2}
 						flexDirection={mobileScreen ? 'column' : 'row'}
-						alignItems='center'
 						justifyContent='space-between'>
 						<Box>
-							<IconButton
-								onClick={(e) => navigate('/colleagues')}>
+							<IconButton onClick={(e) => navigate('/endusers')}>
 								<ArrowForwardIcon />
 							</IconButton>
 							<Typography
@@ -60,7 +58,7 @@ const ColleagueDetails = () => {
 								variant='p'
 								m={2}
 								p={2}>
-								مشخصات همکار
+								مشخصات کاربر
 							</Typography>
 						</Box>
 						<Box>
@@ -99,6 +97,7 @@ const ColleagueDetails = () => {
 						<Box>
 							<PersonalInfo data={data} />
 						</Box>
+						{/* QR code and connection here */}
 					</Box>
 				</CardContainer>
 				<CardContainer>
@@ -137,11 +136,11 @@ const ColleagueDetails = () => {
 								variant='p'
 								m={2}
 								p={2}>
-								فهرست کاربران
+								وضعیت مصرف
 							</Typography>
 						</Box>
 						<Button
-							onClick={(e) => navigate('users')}
+							onClick={(e) => navigate('consume')}
 							variant='contained'>
 							گزارش تفصیلی
 						</Button>
@@ -152,4 +151,4 @@ const ColleagueDetails = () => {
 	);
 };
 
-export default ColleagueDetails;
+export default EndUserDetails;

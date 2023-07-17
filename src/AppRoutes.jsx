@@ -8,9 +8,14 @@ import { Settings } from './Pages/Admin/Settings';
 // import { Messages } from './Pages/Admin/Messages';
 import { TlgBot } from './Pages/Admin/TlgBot';
 import ColleagueDetails from './Pages/Admin/ColleagueDetails';
-import EndUserDetails from './Pages/EndUserDetails';
+import EndUserDetails from './Pages/Admin/EndUserDetails';
+import ColleagueFinancialReport from './Pages/Admin/ColleagueFinancialReport';
+import ColleagueUsersReport from './Pages/Admin/ColleagueUsersReport';
+import UserFinancialReport from './Pages/Admin/UserFinancialReport';
+import UserConsumeReport from './Pages/Admin/UserConsumeReport';
 
 //Colleague pages
+import { Home as ColleagueHome } from './Pages/Home';
 
 export const useAdminRoutes = () => [
 	{
@@ -34,6 +39,16 @@ export const useAdminRoutes = () => [
 		element: <ColleagueDetails />,
 	},
 	{
+		path: 'colleagues/detail/:id/financial',
+		title: '',
+		element: <ColleagueFinancialReport />,
+	},
+	{
+		path: 'colleagues/detail/:id/users',
+		title: '',
+		element: <ColleagueUsersReport />,
+	},
+	{
 		path: 'endusers',
 		title: 'کاربران',
 		element: <EndUsers />,
@@ -43,16 +58,26 @@ export const useAdminRoutes = () => [
 		title: '',
 		element: <EndUserDetails />,
 	},
+	{
+		path: 'endusers/detail/:id/financial',
+		title: '',
+		element: <UserFinancialReport />,
+	},
+	{
+		path: 'endusers/detail/:id/consume',
+		title: '',
+		element: <UserConsumeReport />,
+	},
 	// {
 	// 	path: 'messages',
 	// 	title: 'پیام ها',
 	// 	element: <Messages />,
 	// },
-	{
-		path: 'bot',
-		title: 'ربات تلگرام',
-		element: <TlgBot />,
-	},
+	// {
+	// 	path: 'bot',
+	// 	title: 'ربات تلگرام',
+	// 	element: <TlgBot />,
+	// },
 	{
 		path: 'settings',
 		title: 'تنظیمات',
@@ -61,6 +86,16 @@ export const useAdminRoutes = () => [
 ];
 
 export const useColleagueRoutes = () => [
+	{
+		path: '/',
+		title: '',
+		element: <h1>Colleague Home</h1>,
+	},
+	{
+		path: '/',
+		title: 'صفحه اصلی',
+		element: <ColleagueHome />,
+	},
 	{
 		path: '/',
 		title: '',

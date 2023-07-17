@@ -14,7 +14,7 @@ import {
 import { Search } from '@mui/icons-material';
 
 //faker data
-import users from '../data/users.json';
+import users from '../../data/users.json';
 
 const EndUsersList = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
