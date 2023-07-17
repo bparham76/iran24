@@ -1,9 +1,10 @@
-import { Typography, Grid } from '@mui/material';
+import { Typography, Grid, Box } from '@mui/material';
 import CardContainer from '../../Components/UI/CardContainer';
 import PageFader from '../../Components/UI/PageFader';
 
 import CreateUser from '../../Components/CreateUser';
 import CreateColleague from '../../Components/Admin/CreateColleague';
+import CreateTestConnection from '../../Components/CreateTestConnection';
 import UserStatsSummary from '../../Components/Admin/UserStatsSummary';
 import FinancialStatsSummary from '../../Components/Admin/FinancialStatsSummary';
 
@@ -23,8 +24,15 @@ export const Home = () => {
 							margin={2}>
 							صفحه اصلی
 						</Typography>
-						<CreateColleague />
-						<CreateUser />
+						<Box
+							sx={{
+								display: 'flex',
+								flexDirection: 'row-reverse',
+							}}>
+							<CreateColleague />
+							<CreateUser />
+							<CreateTestConnection />
+						</Box>
 					</CardContainer>
 				</Grid>
 				<Grid

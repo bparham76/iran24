@@ -1,0 +1,18 @@
+{
+    "packages":[
+        {
+            "id":"",
+            "name":"",
+            "length":"",
+            "volume":""
+        }
+    ],
+    "data":[
+        {
+            "id":"",
+            "belongTo":"",
+            "createdAt":"",
+            "package":""
+        }
+    ]
+}

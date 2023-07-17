@@ -8,6 +8,7 @@ import { Settings } from './Pages/Admin/Settings';
 // import { Messages } from './Pages/Admin/Messages';
 import { TlgBot } from './Pages/Admin/TlgBot';
 import ColleagueDetails from './Pages/Admin/ColleagueDetails';
+import EndUserDetails from './Pages/EndUserDetails';
 
 //Colleague pages
 
@@ -36,6 +37,11 @@ export const useAdminRoutes = () => [
 		path: 'endusers',
 		title: 'کاربران',
 		element: <EndUsers />,
+	},
+	{
+		path: 'endusers/detail/:id',
+		title: '',
+		element: <EndUserDetails />,
 	},
 	// {
 	// 	path: 'messages',
