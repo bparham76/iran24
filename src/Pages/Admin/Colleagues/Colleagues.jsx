@@ -1,9 +1,9 @@
 import { Box, Typography } from '@mui/material';
 
-import PageFader from '../../Components/UI/PageFader';
-import CardContainer from '../../Components/UI/CardContainer';
-import CreateColleague from '../../Components/Admin/CreateColleague';
-import ColleaguesList from '../../Components/Admin/ColleaguesList';
+import PageFader from '../../../Components/UI/PageFader';
+import CardContainer from '../../../Components/UI/CardContainer';
+import CreateColleague from '../../../Components/Admin/CreateColleague';
+import ColleaguesList from '../../../Components/Admin/ColleaguesList';
 
 export const Colleagues = () => {
 	return (

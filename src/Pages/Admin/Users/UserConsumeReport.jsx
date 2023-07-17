@@ -8,11 +8,11 @@ import {
 } from '@mui/material';
 import { useParams, useNavigate } from 'react-router-dom';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import FullscreenLoader from '../../Components/UI/FullscreenLoader';
-import CardContainer from '../../Components/UI/CardContainer';
-import PageFader from '../../Components/UI/PageFader';
+import FullscreenLoader from '../../../Components/UI/FullscreenLoader';
+import CardContainer from '../../../Components/UI/CardContainer';
+import PageFader from '../../../Components/UI/PageFader';
 
-const UserFinancialReport = () => {
+const UserConsumeReport = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
 	const { id } = useParams();
 	const navigate = useNavigate();
@@ -40,7 +40,7 @@ const UserFinancialReport = () => {
 								variant='p'
 								m={2}
 								p={2}>
-								گزارش وضعیت مالی کاربر
+								گزارش مصرف کاربر
 							</Typography>
 						</Box>
 					</Box>
@@ -50,4 +50,4 @@ const UserFinancialReport = () => {
 	);
 };
 
-export default UserFinancialReport;
+export default UserConsumeReport;

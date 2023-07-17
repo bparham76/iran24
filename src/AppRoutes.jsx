@@ -1,18 +1,18 @@
 //Admin Pages
 
 import { Home as AdminHome } from './Pages/Admin/Home';
-// import { Statistics as AdminStats } from './Pages/Admin/Statistics';
-import { Colleagues } from './Pages/Admin/Colleagues';
-import { EndUsers } from './Pages/Admin/EndUsers';
+import { Colleagues } from './Pages/Admin/Colleagues/Colleagues';
+import { EndUsers } from './Pages/Admin/Users/EndUsers';
 import { Settings } from './Pages/Admin/Settings';
+import ColleagueDetails from './Pages/Admin/Colleagues/ColleagueDetails';
+import EndUserDetails from './Pages/Admin/Users/EndUserDetails';
+import ColleagueFinancialReport from './Pages/Admin/Colleagues/ColleagueFinancialReport';
+import ColleagueUsersReport from './Pages/Admin/Colleagues/ColleagueUsersReport';
+import UserFinancialReport from './Pages/Admin/Users/UserFinancialReport';
+import UserConsumeReport from './Pages/Admin/Users/UserConsumeReport';
+// import { Statistics as AdminStats } from './Pages/Admin/Statistics';
 // import { Messages } from './Pages/Admin/Messages';
-import { TlgBot } from './Pages/Admin/TlgBot';
-import ColleagueDetails from './Pages/Admin/ColleagueDetails';
-import EndUserDetails from './Pages/Admin/EndUserDetails';
-import ColleagueFinancialReport from './Pages/Admin/ColleagueFinancialReport';
-import ColleagueUsersReport from './Pages/Admin/ColleagueUsersReport';
-import UserFinancialReport from './Pages/Admin/UserFinancialReport';
-import UserConsumeReport from './Pages/Admin/UserConsumeReport';
+// import { TlgBot } from './Pages/Admin/TlgBot';
 
 //Colleague pages
 import { Home as ColleagueHome } from './Pages/Home';

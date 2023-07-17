@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import PageFader from '../../Components/UI/PageFader';
-import PersonalInfo from '../../Components/Admin/PersonalInfo';
-import CardContainer from '../../Components/UI/CardContainer';
+import PageFader from '../../../Components/UI/PageFader';
+import PersonalInfo from '../../../Components/Admin/PersonalInfo';
+import CardContainer from '../../../Components/UI/CardContainer';
 import {
 	Button,
 	Box,
@@ -16,8 +16,8 @@ import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import StopCircleIcon from '@mui/icons-material/StopCircle';
 import { useParams, useNavigate } from 'react-router-dom';
 
-import FullscreenLoader from '../../Components/UI/FullscreenLoader';
-import colleagues from '../../data/colleagues.json';
+import FullscreenLoader from '../../../Components/UI/FullscreenLoader';
+import colleagues from '../../../data/colleagues.json';
 
 const ColleagueDetails = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');

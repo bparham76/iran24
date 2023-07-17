@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import PageFader from '../../Components/UI/PageFader';
-import CardContainer from '../../Components/UI/CardContainer';
+import PageFader from '../../../Components/UI/PageFader';
+import CardContainer from '../../../Components/UI/CardContainer';
 import {
 	Stack,
 	Box,
@@ -14,9 +14,9 @@ import EditIcon from '@mui/icons-material/Edit';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import StopCircleIcon from '@mui/icons-material/StopCircle';
 import { useParams, useNavigate } from 'react-router-dom';
-import PersonalInfo from '../../Components/Admin/PersonalInfo';
-import FullscreenLoader from '../../Components/UI/FullscreenLoader';
-import users from '../../data/users.json';
+import PersonalInfo from '../../../Components/Admin/PersonalInfo';
+import FullscreenLoader from '../../../Components/UI/FullscreenLoader';
+import users from '../../../data/users.json';
 
 const EndUserDetails = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');

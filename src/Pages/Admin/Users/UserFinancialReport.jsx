@@ -8,11 +8,11 @@ import {
 } from '@mui/material';
 import { useParams, useNavigate } from 'react-router-dom';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import FullscreenLoader from '../../Components/UI/FullscreenLoader';
-import CardContainer from '../../Components/UI/CardContainer';
-import PageFader from '../../Components/UI/PageFader';
+import FullscreenLoader from '../../../Components/UI/FullscreenLoader';
+import CardContainer from '../../../Components/UI/CardContainer';
+import PageFader from '../../../Components/UI/PageFader';
 
-const ColleagueFinancialReport = () => {
+const UserFinancialReport = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
 	const { id } = useParams();
 	const navigate = useNavigate();
@@ -31,7 +31,7 @@ const ColleagueFinancialReport = () => {
 						<Box>
 							<IconButton
 								onClick={(e) =>
-									navigate('/colleagues/detail/' + id)
+									navigate('/endusers/detail/' + id)
 								}>
 								<ArrowForwardIcon />
 							</IconButton>
@@ -40,7 +40,7 @@ const ColleagueFinancialReport = () => {
 								variant='p'
 								m={2}
 								p={2}>
-								گزارش وضعیت مالی همکار
+								گزارش وضعیت مالی کاربر
 							</Typography>
 						</Box>
 					</Box>
@@ -50,4 +50,4 @@ const ColleagueFinancialReport = () => {
 	);
 };
 
-export default ColleagueFinancialReport;
+export default UserFinancialReport;
