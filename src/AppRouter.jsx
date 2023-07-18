@@ -31,10 +31,6 @@ const AppRouter = () => {
 			children: routeList,
 			errorElement: <NotFound />,
 		},
-		{
-			path: 'login',
-			element: <Login />,
-		},
 	]);
 
 	return <RouterProvider router={Routes} />;
