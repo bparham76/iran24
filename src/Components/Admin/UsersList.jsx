@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {
 	Box,
@@ -14,14 +15,29 @@ import {
 import { Search } from '@mui/icons-material';
 
 //faker data
-import users from '../../data/users.json';
+// import users from '../../data/users.json';
 
 const EndUsersList = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
-	const [loading, isLoading] = useState(false);
+	const [users, setUsers] = useState();
+	const [loading, isLoading] = useState(true);
 	const [commitSearch, setCommitSearch] = useState(false);
 
 	const navigate = useNavigate();
+
+	// admin / users / list;
+
+	const getUsers = async () => {
+		try {
+			const response = await axios.get('admin/users/list');
+			if (response.status == 200) setUsers(response.data);
+		} catch {}
+		isLoading(false);
+	};
+
+	useEffect(() => {
+		getUsers();
+	}, []);
 
 	const CustomTableRow = ({ data }) => (
 		<TableRow
@@ -32,14 +48,16 @@ const EndUsersList = () => {
 					backgroundColor: 'lightcyan',
 				},
 			}}>
-			<TableCell>{data.firstName}</TableCell>
-			<TableCell>{data.lastName}</TableCell>
+			<TableCell>{data.first_name}</TableCell>
+			<TableCell>{data.last_name}</TableCell>
 			<TableCell>{data.phone}</TableCell>
-			<TableCell>{data.createdBy}</TableCell>
+			<TableCell>{data.created_by}</TableCell>
 		</TableRow>
 	);
 
 	const tableHeads = ['نام', 'نام خانوادگی', 'تلفن', 'ساخته شده توسط'];
+
+	if (loading) return;
 
 	return (
 		<Box p={2}>
@@ -72,7 +90,7 @@ const EndUsersList = () => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{users.data.map((item, index) => (
+						{users.map((item, index) => (
 							<CustomTableRow
 								key={index}
 								data={item}

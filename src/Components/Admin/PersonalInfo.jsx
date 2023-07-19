@@ -23,12 +23,6 @@ const PersonalInfo = ({ data }) => {
 						</TableCell>
 						<TableCell>{data.phone}</TableCell>
 					</TableRow>
-					<TableRow>
-						<TableCell style={{ fontWeight: 'bold' }}>
-							آغاز فعالیت
-						</TableCell>
-						<TableCell></TableCell>
-					</TableRow>
 				</TableBody>
 			</Table>
 		</>

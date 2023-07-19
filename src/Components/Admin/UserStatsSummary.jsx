@@ -1,17 +1,22 @@
 import { Typography, Box } from '@mui/material';
 import { Pie } from 'react-chartjs-2';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 const UserStatsSummary = () => {
-	const data = {
-		labels: ['کاربران فعال', 'کاربران غیرفعال'],
-		datasets: [
-			{
-				label: 'تعداد',
-				data: [318, 269],
-				backgroundColor: ['red', 'blue'],
-			},
-		],
+	const [userStats, setUserStats] = useState({});
+
+	const getUserStats = async () => {
+		try {
+			const response = await axios.get('admin/users/stats');
+			if (response.status == 200) setUserStats(response.data);
+		} catch {}
 	};
+
+	useEffect(() => {
+		getUserStats();
+	}, []);
+
 	return (
 		<Box>
 			<Typography
@@ -21,7 +26,16 @@ const UserStatsSummary = () => {
 			</Typography>
 			<Pie
 				options={{ responsive: true }}
-				data={data}
+				data={{
+					labels: ['کاربران فعال', 'کاربران غیرفعال'],
+					datasets: [
+						{
+							label: 'تعداد',
+							data: [userStats.active, userStats.blocked],
+							backgroundColor: ['red', 'blue'],
+						},
+					],
+				}}
 				height='100%'
 				width='100%'
 				redraw

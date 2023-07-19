@@ -22,7 +22,7 @@ const MainMenu = ({ open, setOpen }) => {
 
 	let menuList = [];
 
-	if (userInfo.type == 'admin') {
+	if (userInfo.type == '0') {
 		menuList = AdminRoutes.map((route) => {
 			return { to: route.path, title: route.title };
 		});

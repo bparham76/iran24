@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { useUserInfo } from './AuthProvider';
 import Dashboard from './Pages/Dashboard';
-import Login from './Pages/Login';
 import NotFound from './Pages/NotFound';
 
 import { useAdminRoutes, useColleagueRoutes } from './AppRoutes';
@@ -14,7 +13,7 @@ const AppRouter = () => {
 
 	let routeList = [];
 
-	if (userInfo.type == 'admin') {
+	if (userInfo.type == '0') {
 		routeList = AdminRoutes.map((route) => {
 			return { path: route.path, element: route.element };
 		});

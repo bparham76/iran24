@@ -14,12 +14,26 @@ import {
 import { Search } from '@mui/icons-material';
 
 //faker data
-import colleagues from '../../data/colleagues.json';
+// import colleagues from '../../data/colleagues.json';
+import axios from 'axios';
 
 const ColleaguesList = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
-	const [loading, isLoading] = useState(false);
+	const [loading, isLoading] = useState(true);
 	const [commitSearch, setCommitSearch] = useState(false);
+	const [colleagues, setColleagues] = useState();
+
+	const getColleaguesList = async () => {
+		try {
+			const response = await axios.get('admin/colleagues/list');
+			if (response.status == 200) setColleagues(response.data);
+		} catch {}
+		isLoading(false);
+	};
+
+	useEffect(() => {
+		getColleaguesList();
+	}, []);
 
 	const navigate = useNavigate();
 
@@ -32,13 +46,15 @@ const ColleaguesList = () => {
 					backgroundColor: 'lightcyan',
 				},
 			}}>
-			<TableCell>{data.firstName}</TableCell>
-			<TableCell>{data.lastName}</TableCell>
+			<TableCell>{data.first_name}</TableCell>
+			<TableCell>{data.last_name}</TableCell>
 			<TableCell>{data.phone}</TableCell>
 		</TableRow>
 	);
 
 	const tableHeads = ['نام', 'نام خانوادگی', 'تلفن'];
+
+	if (loading) return;
 
 	return (
 		<Box p={2}>
@@ -71,7 +87,7 @@ const ColleaguesList = () => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{colleagues.data.map((item, index) => (
+						{colleagues.map((item, index) => (
 							<CustomTableRow
 								key={index}
 								data={item}

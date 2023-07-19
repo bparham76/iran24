@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Paper, Box, Typography, TextField, Button } from '@mui/material';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { useValidateSession } from '../AuthProvider';
 
 const Login = () => {
+	const login = useValidateSession();
+
 	const [credentials, setCredentials] = useState({
 		username: '',
 		password: '',
@@ -23,7 +28,7 @@ const Login = () => {
 	const handleClick = () => {
 		if (credentials.username.trim().length == 0)
 			setFormError({ ...formError, username: true });
-		else if (credentials.password.trim().length == 0)
+		else if (credentials.password.trim().length != 4)
 			setFormError({ ...formError, password: true });
 		else setValidate(true);
 	};
@@ -32,10 +37,29 @@ const Login = () => {
 		setFormError({ username: false, password: false });
 	}, [credentials]);
 
+	const fetchData = async () => {
+		try {
+			const response = await axios.post('login', {
+				phone: credentials.username,
+				password: credentials.password,
+			});
+
+			if (response.status == 200) {
+				login({
+					user_info: response.data.user,
+					token: response.data.token,
+				});
+			}
+		} catch (e) {
+			Swal.fire('خطا');
+		}
+	};
+
 	useEffect(() => {
 		if (validate) {
 			setValidate(false);
 			//fetch data from server
+			fetchData();
 		}
 	}, [validate]);
 
@@ -63,16 +87,24 @@ const Login = () => {
 					ورود به پنل
 				</Typography>
 				<TextField
-					onChange={(e) => setUsername(e.target.value)}
+					onChange={(e) =>
+						e.target.value.length < 12 &&
+						/^(\s*|\d+)$/.test(e.target.value) &&
+						setUsername(e.target.value.trim())
+					}
 					value={credentials.username}
 					error={formError.username}
 					required
 					variant='outlined'
-					title='نام کاربری'
-					label='نام کاربری'
+					title='تلفن همراه'
+					label='تلفن همراه'
 				/>
 				<TextField
-					onChange={(e) => setPassword(e.target.value)}
+					onChange={(e) =>
+						e.target.value.length < 5 &&
+						/^(\s*|\d+)$/.test(e.target.value) &&
+						setPassword(e.target.value.trim())
+					}
 					value={credentials.password}
 					error={formError.password}
 					required
