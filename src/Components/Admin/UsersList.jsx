@@ -13,11 +13,11 @@ import {
 	useMediaQuery,
 } from '@mui/material';
 import { Search } from '@mui/icons-material';
+import FullscreenLoader from '../UI/FullscreenLoader';
 
 const EndUsersList = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
 	const [users, setUsers] = useState();
-	const [loading, isLoading] = useState(true);
 
 	const navigate = useNavigate();
 
@@ -26,7 +26,6 @@ const EndUsersList = () => {
 			const response = await axios.get('admin/users/list');
 			if (response.status == 200) setUsers(response.data);
 		} catch {}
-		isLoading(false);
 	};
 
 	useEffect(() => {
@@ -51,7 +50,7 @@ const EndUsersList = () => {
 
 	const tableHeads = ['نام', 'نام خانوادگی', 'تلفن', 'ساخته شده توسط'];
 
-	if (loading) return;
+	if (!users) return <FullscreenLoader />;
 
 	return (
 		<Box p={2}>

@@ -6,23 +6,25 @@ import './spinner.css';
 
 const FullscreenLoader = () => {
 	return (
-		<PageFader>
-			<Box
+		<Box
+			sx={{
+				height: '100vh',
+				width: '100vw',
+				position: 'fixed',
+				top: 0,
+				right: 0,
+				backgroundColor: 'rgba(255,255,255,0.7)',
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+			}}>
+			<SyncIcon
 				sx={{
-					width: '100%',
-					height: '100%',
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
-				}}>
-				<SyncIcon
-					sx={{
-						fontSize: '4rem',
-						animation: 'spin 2s infinite linear',
-					}}
-				/>
-			</Box>
-		</PageFader>
+					fontSize: '4rem',
+					animation: 'spin 2s infinite linear',
+				}}
+			/>
+		</Box>
 	);
 };
 

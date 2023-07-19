@@ -100,7 +100,10 @@ const EndUserDetails = () => {
 						padding={2}
 						gap={2}>
 						<Box>
-							<PersonalInfo data={data} />
+							<PersonalInfo
+								data={data}
+								user={true}
+							/>
 						</Box>
 						{/* QR code and connection here */}
 					</Box>

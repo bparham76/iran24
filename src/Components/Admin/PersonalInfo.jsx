@@ -1,6 +1,7 @@
 import { Table, TableBody, TableRow, TableCell } from '@mui/material';
+import { Link } from 'react-router-dom';
 
-const PersonalInfo = ({ data }) => {
+const PersonalInfo = ({ data, user = false }) => {
 	return (
 		<>
 			<Table>
@@ -23,6 +24,24 @@ const PersonalInfo = ({ data }) => {
 						</TableCell>
 						<TableCell>{data.phone}</TableCell>
 					</TableRow>
+					{user && (
+						<TableRow>
+							<TableCell style={{ fontWeight: 'bold' }}>
+								ساخته شده توسط
+							</TableCell>
+							<TableCell>
+								<Link
+									to={
+										'/colleagues/detail/' +
+										data.created_by.id
+									}>
+									{data.created_by.first_name +
+										' ' +
+										data.created_by.last_name}
+								</Link>
+							</TableCell>
+						</TableRow>
+					)}
 				</TableBody>
 			</Table>
 		</>

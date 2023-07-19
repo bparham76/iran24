@@ -13,10 +13,10 @@ import {
 } from '@mui/material';
 import { Search } from '@mui/icons-material';
 import axios from 'axios';
+import FullscreenLoader from '../UI/FullscreenLoader';
 
 const ColleaguesList = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
-	const [loading, isLoading] = useState(true);
 	const [colleagues, setColleagues] = useState();
 
 	const getColleaguesList = async () => {
@@ -24,7 +24,6 @@ const ColleaguesList = () => {
 			const response = await axios.get('admin/colleagues/list');
 			if (response.status == 200) setColleagues(response.data);
 		} catch {}
-		isLoading(false);
 	};
 
 	useEffect(() => {
@@ -50,7 +49,7 @@ const ColleaguesList = () => {
 
 	const tableHeads = ['نام', 'نام خانوادگی', 'تلفن'];
 
-	if (loading) return;
+	if (!colleagues) return <FullscreenLoader />;
 
 	return (
 		<Box p={2}>
