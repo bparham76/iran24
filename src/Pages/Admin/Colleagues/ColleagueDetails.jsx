@@ -18,7 +18,6 @@ import StopCircleIcon from '@mui/icons-material/StopCircle';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import FullscreenLoader from '../../../Components/UI/FullscreenLoader';
-import colleagues from '../../../data/colleagues.json';
 
 const ColleagueDetails = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
@@ -34,10 +33,15 @@ const ColleagueDetails = () => {
 		setActive(true);
 	};
 
+	const getColleaguesInfo = async () => {
+		try {
+			const response = await axios.get('admin/colleagues/' + id);
+			if (response.status == 200) setData(response.data);
+		} catch {}
+	};
+
 	useEffect(() => {
-		colleagues.data.forEach((item) => {
-			if (item.id == id) setData(item);
-		});
+		getColleaguesInfo();
 	}, []);
 
 	if (!data) return <FullscreenLoader />;

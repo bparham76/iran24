@@ -16,7 +16,7 @@ import StopCircleIcon from '@mui/icons-material/StopCircle';
 import { useParams, useNavigate } from 'react-router-dom';
 import PersonalInfo from '../../../Components/Admin/PersonalInfo';
 import FullscreenLoader from '../../../Components/UI/FullscreenLoader';
-import users from '../../../data/users.json';
+import axios from 'axios';
 
 const EndUserDetails = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
@@ -32,10 +32,15 @@ const EndUserDetails = () => {
 		setActive(true);
 	};
 
+	const getUserInfo = async () => {
+		try {
+			const response = await axios.get('admin/users/' + id);
+			if (response.status == 200) setData(response.data);
+		} catch {}
+	};
+
 	useEffect(() => {
-		users.data.forEach((item) => {
-			if (item.id == id) setData(item);
-		});
+		getUserInfo();
 	}, []);
 
 	if (!data) return <FullscreenLoader />;

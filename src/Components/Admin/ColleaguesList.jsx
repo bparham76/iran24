@@ -12,15 +12,11 @@ import {
 	useMediaQuery,
 } from '@mui/material';
 import { Search } from '@mui/icons-material';
-
-//faker data
-// import colleagues from '../../data/colleagues.json';
 import axios from 'axios';
 
 const ColleaguesList = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
 	const [loading, isLoading] = useState(true);
-	const [commitSearch, setCommitSearch] = useState(false);
 	const [colleagues, setColleagues] = useState();
 
 	const getColleaguesList = async () => {

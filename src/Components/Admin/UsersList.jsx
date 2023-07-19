@@ -14,18 +14,12 @@ import {
 } from '@mui/material';
 import { Search } from '@mui/icons-material';
 
-//faker data
-// import users from '../../data/users.json';
-
 const EndUsersList = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
 	const [users, setUsers] = useState();
 	const [loading, isLoading] = useState(true);
-	const [commitSearch, setCommitSearch] = useState(false);
 
 	const navigate = useNavigate();
-
-	// admin / users / list;
 
 	const getUsers = async () => {
 		try {

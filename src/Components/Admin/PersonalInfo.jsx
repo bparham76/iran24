@@ -9,13 +9,13 @@ const PersonalInfo = ({ data }) => {
 						<TableCell style={{ fontWeight: 'bold' }}>
 							نام
 						</TableCell>
-						<TableCell>{data.firstName}</TableCell>
+						<TableCell>{data.first_name}</TableCell>
 					</TableRow>
 					<TableRow>
 						<TableCell style={{ fontWeight: 'bold' }}>
 							نام خانوادگی
 						</TableCell>
-						<TableCell>{data.lastName}</TableCell>
+						<TableCell>{data.last_name}</TableCell>
 					</TableRow>
 					<TableRow>
 						<TableCell style={{ fontWeight: 'bold' }}>
