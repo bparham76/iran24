@@ -17,6 +17,7 @@ const FullscreenLoader = () => {
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
+				zIndex: 999,
 			}}>
 			<SyncIcon
 				sx={{

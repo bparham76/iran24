@@ -9,8 +9,12 @@ import {
 	TableRow,
 	TableBody,
 	TableCell,
+	Button,
+	Typography,
 	useMediaQuery,
 } from '@mui/material';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { Search } from '@mui/icons-material';
 import axios from 'axios';
 import FullscreenLoader from '../UI/FullscreenLoader';
@@ -18,17 +22,35 @@ import FullscreenLoader from '../UI/FullscreenLoader';
 const ColleaguesList = () => {
 	const mobileScreen = useMediaQuery('(max-width: 470px)');
 	const [colleagues, setColleagues] = useState();
+	const [loading, isLoading] = useState(true);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [maxPage, setMaxPage] = useState(0);
+
+	const handleNextPage = () =>
+		currentPage < maxPage &&
+		setCurrentPage((currentPage) => currentPage + 1);
+	const handlePreviousPage = () =>
+		currentPage > 1 && setCurrentPage((currentPage) => currentPage - 1);
 
 	const getColleaguesList = async () => {
 		try {
-			const response = await axios.get('admin/colleagues/list');
-			if (response.status == 200) setColleagues(response.data);
-		} catch {}
+			isLoading(true);
+			const response = await axios.get(
+				'admin/colleagues/list/page?page=' + currentPage
+			);
+			if (response.status == 200) {
+				setColleagues(response.data.colleagues);
+				setMaxPage(response.data.pages);
+				isLoading(false);
+			}
+		} catch {
+			isLoading(false);
+		}
 	};
 
 	useEffect(() => {
 		getColleaguesList();
-	}, []);
+	}, [currentPage]);
 
 	const navigate = useNavigate();
 
@@ -49,7 +71,7 @@ const ColleaguesList = () => {
 
 	const tableHeads = ['نام', 'نام خانوادگی', 'تلفن'];
 
-	if (!colleagues) return <FullscreenLoader />;
+	if (loading) return <FullscreenLoader />;
 
 	return (
 		<Box p={2}>
@@ -82,7 +104,7 @@ const ColleaguesList = () => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{colleagues.map((item, index) => (
+						{colleagues?.map((item, index) => (
 							<CustomTableRow
 								key={index}
 								data={item}
@@ -90,6 +112,29 @@ const ColleaguesList = () => {
 						))}
 					</TableBody>
 				</Table>
+			</Box>
+			<Box
+				sx={{
+					display: 'flex',
+					width: '100%',
+					mt: '1rem',
+					justifyContent: 'end',
+					alignItems: 'center',
+					gap: 2,
+				}}>
+				<Button
+					onClick={handlePreviousPage}
+					disabled={currentPage == 1}>
+					<ChevronRightIcon />
+				</Button>
+				<Typography variant='p'>
+					صفحه {currentPage} از {maxPage}
+				</Typography>
+				<Button
+					onClick={handleNextPage}
+					disabled={currentPage == maxPage}>
+					<ChevronLeftIcon />
+				</Button>
 			</Box>
 		</Box>
 	);

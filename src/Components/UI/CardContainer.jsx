@@ -6,7 +6,9 @@ const CardContainer = ({ children }) => {
 
 	return (
 		<Paper
-			sx={{ p: 1 }}
+			sx={{
+				p: 1,
+			}}
 			elevation={hover ? 4 : 1}
 			onMouseEnter={(e) => setHover(true)}
 			onMouseLeave={(e) => setHover(false)}>
