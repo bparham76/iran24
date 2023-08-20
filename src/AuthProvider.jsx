@@ -2,7 +2,6 @@ import axios from 'axios';
 import { useContext, createContext, useState, useEffect } from 'react';
 
 import Login from './Pages/Login';
-import Swal from 'sweetalert2';
 
 const AuthContext = createContext();
 

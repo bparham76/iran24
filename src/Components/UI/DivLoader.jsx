@@ -9,6 +9,10 @@ const DivLoader = () => {
 		<PageFader>
 			<Box
 				sx={{
+					position: 'fixed',
+					top: 0,
+					left: 0,
+					backgroundColor: 'rgba(255,255,255,0.7)',
 					width: '100%',
 					height: '100%',
 					display: 'flex',

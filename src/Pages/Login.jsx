@@ -63,7 +63,6 @@ const Login = () => {
 	useEffect(() => {
 		if (validate) {
 			setValidate(false);
-			//fetch data from server
 			fetchData();
 		}
 	}, [validate]);
